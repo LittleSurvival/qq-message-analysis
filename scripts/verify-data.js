@@ -1,0 +1,10 @@
+import { readdir } from 'node:fs/promises';
+import { createReadStream, statSync } from 'node:fs';
+import { Readable } from 'node:stream';
+import { analyzeFile } from '../src/analysis/importer.js';
+const name = process.argv[2] || (await readdir('.data')).find(x => x.endsWith('.json'));
+if (!name) throw new Error('Place a QCE JSON file in .data/ or pass a path.');
+const path = process.argv[2] || `.data/${name}`;
+const started = performance.now();
+const report = await analyzeFile({ name, size: statSync(path).size, stream: () => Readable.toWeb(createReadStream(path)) });
+console.log(JSON.stringify({ seconds: (performance.now()-started)/1000, memoryMB: process.memoryUsage().rss/1048576, total: report.total, memberCount: report.members.length, night: report.night, plain: report.plain, elements: report.elements, quality: report.quality, expected: report.expected, dates: [report.daily[0]?.date, report.daily.at(-1)?.date], reconciled: Object.values(report.types).reduce((a,b)=>a+b,0)===report.total }, null, 2));

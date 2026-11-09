@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-09",
+  "gpu": "RTX 4070 Ti SUPER 16 GB",
+  "runtime": "llama.cpp b9082 b46812de7",
+  "model": "Qwen3.5 4B Q4_K_M",
+  "messages": 144,
+  "batches": 18,
+  "parallel": 6,
+  "context_per_slot": 16384,
+  "baseline_ub512": {
+    "seconds": 37.6279846,
+    "valid": 144,
+    "failed": 0,
+    "rate": 3.8269389533023253,
+    "input_tokens": 66500,
+    "output_tokens": 9806
+  },
+  "baseline_ub64": {
+    "seconds": 42.14282359999999,
+    "valid": 144,
+    "failed": 0,
+    "rate": 3.416951872204406,
+    "input_tokens": 66500,
+    "output_tokens": 9801
+  },
+  "branches_v1": {
+    "seconds": 171.0666402,
+    "score_seconds": 127.4271593,
+    "score_rate": 1.130057366035939,
+    "explanation_seconds": 43.635171,
+    "valid": 8,
+    "failed": 136,
+    "rate": 0.04676540084406241,
+    "explanation_output_tokens": 269,
+    "explanation_failures": [
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記"
+    ],
+    "decisions": {
+      "decisions": 1152,
+      "valid": 1152,
+      "failed": 0,
+      "unknown": 962,
+      "evaluated_input": 435486,
+      "logical_input": 3882896,
+      "output_tokens": 1152
+    }
+  },
+  "branches_v2": {
+    "seconds": 164.20085880000002,
+    "score_seconds": 128.8201101,
+    "score_rate": 1.1178378895051109,
+    "explanation_seconds": 35.37721650000001,
+    "valid": 128,
+    "failed": 16,
+    "rate": 0.779533072697912,
+    "decisions": {
+      "decisions": 1152,
+      "valid": 1152,
+      "failed": 0,
+      "unknown": 2,
+      "evaluated_input": 435806,
+      "logical_input": 3886352,
+      "output_tokens": 1152
+    },
+    "explanation_output_tokens": 3898,
+    "explanation_failures": [
+      "未知分數需附不確定標記",
+      "未知分數需附不確定標記"
+    ]
+  },
+  "comparison_to_baseline_ub64": {
+    "support": {
+      "compared": 128,
+      "equal": 125,
+      "both_known": 128,
+      "mean_absolute_difference": 0.0390625
+    },
+    "respect": {
+      "compared": 128,
+      "equal": 110,
+      "both_known": 128,
+      "mean_absolute_difference": 0.2265625
+    },
+    "information": {
+      "compared": 128,
+      "equal": 64,
+      "both_known": 128,
+      "mean_absolute_difference": 0.9765625
+    },
+    "constructive": {
+      "compared": 128,
+      "equal": 79,
+      "both_known": 128,
+      "mean_absolute_difference": 0.6640625
+    },
+    "negative": {
+      "compared": 128,
+      "equal": 98,
+      "both_known": 128,
+      "mean_absolute_difference": 0.4140625
+    },
+    "attack": {
+      "compared": 128,
+      "equal": 123,
+      "both_known": 128,
+      "mean_absolute_difference": 0.0625
+    },
+    "provocation": {
+      "compared": 128,
+      "equal": 123,
+      "both_known": 128,
+      "mean_absolute_difference": 0.0546875
+    },
+    "escalation": {
+      "compared": 128,
+      "equal": 127,
+      "both_known": 128,
+      "mean_absolute_difference": 0.015625
+    }
+  },
+  "first_batch_diagnostic": {
+    "no-cache": {
+      "seconds": 52.1828118,
+      "valid": 64,
+      "failed": 0,
+      "unknown": 56
+    },
+    "answer-prefix": {
+      "seconds": 3.033535299999996,
+      "valid": 64,
+      "failed": 0,
+      "unknown": 1
+    },
+    "natural": {
+      "seconds": 3.2383583999999974,
+      "valid": 64,
+      "failed": 0,
+      "unknown": 56,
+      "format_counts": {
+        "0": 2,
+        "1": 3,
+        "3": 2,
+        "?": 56,
+        "other": 1
+      }
+    }
+  }
+}
