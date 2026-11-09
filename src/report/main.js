@@ -7,6 +7,7 @@ import { createAnalysisWorker } from '../analysis/worker-factory.js';
 import { download, interactiveHTML, printDocument, printPDF } from './export.js';
 installAvatarFallback(document);
 const $ = id => document.getElementById(id);
+const exporterUrl = 'https://github.com/shuakami/qq-chat-exporter';
 const n = value => Number(value || 0).toLocaleString('zh-TW', { maximumFractionDigits: 0 });
 const MEMBER_COLUMNS = [['total','訊息'],['chars','總字數'],['plain','普通文字'],['file','檔案'],['fileBytes','檔案總大小'],['image','圖片'],['sticker','表情包'],['face','QQ 表情'],['night','凌晨訊息'],['days','活躍天數']];
 const pct = value => `${(value * 100).toFixed(1)}%`;
@@ -43,13 +44,13 @@ document.querySelector('#app').innerHTML = `
     <a href="#media">${icon('media')}媒體與檔案</a>
     <a href="#afterhours">${icon('clock')}時段發言排行</a>
   </nav>
-  <div class="sidebar-bottom"><div class="local-card">${icon('shield')}<strong>統計在瀏覽器處理</strong><p>語料分析會送至你設定的模型。</p></div><a class="source-link" href="https://github.com/shuakami/qq-chat-exporter" target="_blank" rel="noreferrer">相容 QQ Chat Exporter ↗</a><span class="version">QQ 聊天分析 <span>v1.0</span></span></div>
+  <div class="sidebar-bottom"><div class="local-card">${icon('shield')}<strong>統計在瀏覽器處理</strong><p>語料分析會送至你設定的模型。</p></div><a class="source-link" href="${exporterUrl}" target="_blank" rel="noreferrer">相容 QQ Chat Exporter ↗</a><span class="version">QQ 聊天分析 <span>v1.0</span></span></div>
 </aside>
 <main>
   <header class="topbar"><div class="breadcrumb">聊天分析報告</div><span class="timezone">${icon('clock', 14)} UTC +08:00</span><button id="clear" class="text-button">關閉報告</button></header>
   <div class="content">
     <section id="overview" class="intro"><div><h1>QQ 聊天記錄統計</h1></div><div class="intro-actions"><button class="button" id="demo">查看示範</button><button class="button primary" id="import-top">${icon('upload', 17)}匯入聊天記錄</button></div></section>
-    <section id="dropzone" class="upload-zone" aria-label="匯入聊天檔案"><div class="upload-icon">${icon('upload', 23)}</div><div class="upload-copy"><strong>拖曳 JSON 檔案至此，或點選「選擇檔案」</strong><p>支援 QQ Chat Exporter 的單檔 .json 或單個 .jsonl 分塊</p></div><button id="choose" class="button subtle">選擇檔案 ${icon('arrow', 16)}</button><input id="file" type="file" accept=".json,.jsonl,.ndjson,application/json" hidden></section>
+    <section id="dropzone" class="upload-zone" aria-label="匯入聊天檔案"><div class="upload-icon">${icon('upload', 23)}</div><div class="upload-copy"><strong>拖曳 JSON 檔案至此，或點選「選擇檔案」</strong><p>支援 <a href="${exporterUrl}" target="_blank" rel="noreferrer">QQ Chat Exporter</a> 的單檔 .json 或單個 .jsonl 分塊</p></div><button id="choose" class="button subtle">選擇檔案 ${icon('arrow', 16)}</button><input id="file" type="file" accept=".json,.jsonl,.ndjson,application/json" hidden></section>
     <section id="progress-panel" class="progress-panel" hidden><div><span id="progress-text" role="status">正在分析…</span><button class="text-button" id="cancel">取消分析</button></div><progress id="progress" max="100" value="0"></progress></section>
     <div id="notice" class="notice" role="status" hidden></div>
     <div id="report" hidden>

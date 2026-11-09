@@ -57,6 +57,14 @@
 @media(max-width:1000px){.period-panel{gap:15px;padding:22px;grid-template-columns:minmax(190px,.8fr) minmax(0,1.5fr)}.period-summary{padding:4px 0}.period-controls{flex-wrap:wrap}.period-total strong{font-size:29px}.period-sequence{gap:12px}}
 @media(max-width:760px){.filters{padding:13px;gap:13px}.filter-row{gap:8px}.filter-row .system-toggle{margin:5px 0 0}.filter-row:first-child .filter-label{width:100%}.filter-field{flex-wrap:wrap}.period-panel{grid-template-columns:minmax(0,1fr);padding:20px;gap:25px}.period-summary{position:static;align-items:center;text-align:center}.period-summary h3{font-size:22px}.period-switch{width:100px;height:100px}#period-switch-help{margin-bottom:20px}.period-total{margin-top:18px}.period-sequence{margin-top:16px}.period-controls{flex-wrap:nowrap;gap:9px}.period-controls>label:first-child{flex:1;min-width:0}.period-controls>label:last-child{white-space:nowrap}.period-panel .night-row{gap:8px}.period-panel .night-person small{font-size:10px}.period-panel .night-row>b{width:50px;font-size:14px}.period-pagination{justify-content:center}.period-pagination>span{width:100%;text-align:center}.period-ranking{min-height:315px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+.upload-copy a {
+  color: #c1aaff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.upload-copy a:hover { color: #e0d4ff; }
+
 /* Export format picker */
 #export-panel{color:var(--text,#eeeef8);background:linear-gradient(135deg,#202034,#12131f);border:1px solid #48415f;border-radius:18px;width:min(600px,calc(100vw - 32px));max-height:calc(100dvh - 40px);padding:26px;box-shadow:0 24px 100px #0009}
 #export-panel::backdrop{background:#050610b8;backdrop-filter:blur(6px)}
